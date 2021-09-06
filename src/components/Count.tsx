@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import '../App.css';
 import {Scoreboard} from "./Scoreboard";
 import {Buttons} from "./Buttons";
@@ -9,6 +9,18 @@ export const Count = () => {
 
     const [number, setNumber] = useState<number>(valueMin)
 
+    useEffect(() => {
+        let numberAsString = localStorage.getItem("counterNumber")
+        if (numberAsString) {
+            let newNumber = JSON.parse(numberAsString)
+            setNumber(newNumber)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("counterNumber", JSON.stringify(number))
+    }, [number])
+
     function maxValue() {
         if (number < valueMax) {
             setNumber(number + 1)
@@ -18,7 +30,6 @@ export const Count = () => {
     function resetValue() {
         setNumber(valueMin)
     }
-
 
     return (
         <div className="Count">

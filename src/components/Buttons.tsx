@@ -5,7 +5,7 @@ import s from './Buttons.module.css'
 type buttonsType = {
     onClick: () => void
     title: string
-    dis: boolean
+    dis?: boolean
 }
 
 export const Buttons = (props: buttonsType) => {
