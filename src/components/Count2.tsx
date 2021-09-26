@@ -3,7 +3,7 @@ import '../App.css';
 import {Scoreboard} from "./Scoreboard";
 import {Buttons} from "./Buttons";
 
-export const Count = () => {
+export const Count2 = () => {
     const valueMax = 5
     const valueMin = 0
 
@@ -32,9 +32,9 @@ export const Count = () => {
     }
 
     return (
-        <div className="Count">
+        <div className="Count2">
             <Scoreboard value={number} valueMax={valueMax}/>
-            <div className='Buttons'>
+            <div className='Buttons2'>
                 <Buttons onClick={maxValue} title={"+"} dis={number === valueMax}/>
                 <Buttons onClick={resetValue} title={"-"} dis={number === valueMin}/>
             </div>

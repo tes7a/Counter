@@ -1,18 +1,22 @@
 .Count {
-    width: 500px;
-    height: 450px;
-    text-align: center;
+    /*width: 500px;*/
+    /*height: 450px;*/
+    /*text-align: center;*/
+    /*position: absolute;*/
+    /*padding-top: 10px;*/
+    /*top: 30%;*/
+    /*left: 30%;*/
+    /*margin: -300px 0 0 -300px;*/
+
+    /*outline: 2px solid #000;*/
+    /*border: 3px solid #0a44ff;*/
+
+    /*background-color: aqua;*/
+    /*border-radius: 10px;*/
     position: absolute;
-    padding-top: 10px;
-    top: 50%;
-    left: 50%;
-    margin: -300px 0 0 -300px;
-
-    outline: 2px solid #000;
+    top: 30%;
+    left: 30%;
     border: 3px solid #0a44ff;
-
-    background-color: aqua;
-    border-radius: 10px;
 }
 
 .Buttons {
@@ -21,8 +25,8 @@
     text-align: center;
     position: absolute;
     padding-top: 10px;
-    top: 50%;
-    left: 50%;
+    top: 30%;
+    left: 30%;
     margin: 100px 0 0 -100px;
 
     outline: 2px solid #000;
@@ -32,5 +36,27 @@
     border-radius: 10px;
 }
 
+.Count2 {
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    border: 3px solid #0a44ff;
+}
 
+.Buttons2{
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    position: absolute;
+    padding-top: 10px;
+    top: 30%;
+    left: 60%;
+    margin: 100px 0 0 -100px;
+
+    outline: 2px solid #000;
+    border: 3px solid #0a44ff;
+
+    background-color: aqua;
+    border-radius: 10px;
+}
 
