@@ -2,24 +2,41 @@ import React, {useEffect, useState} from "react";
 import '../App.css';
 import {Scoreboard} from "./Scoreboard";
 import {Buttons} from "./Buttons";
+import {Input} from "./Input";
+import s from "./Count.module.css"
 
-export const Count = () => {
-    const valueMax = 5
-    const valueMin = 0
+type CountType = {
+    max: number
+    start: number
+    setMax: (value: number) => void
+    setStart: (value: number) => void
+    init: boolean
+    setInit: (value: boolean) => void
+    errorInp: boolean
+    setErrorInp: (value: boolean) => void
+}
+
+export const Count: React.FC<CountType> = ({max, start, setMax, setStart, init, setInit,...restProp}) => {
+    const valueMax = max
+    const valueMin = start
 
     const [number, setNumber] = useState<number>(valueMin)
 
     useEffect(() => {
-        let numberAsString = localStorage.getItem("counterNumber")
-        if (numberAsString) {
-            let newNumber = JSON.parse(numberAsString)
-            setNumber(newNumber)
-        }
-    }, [])
+        setNumber(valueMin)
+    }, [valueMin])
 
-    useEffect(() => {
-        localStorage.setItem("counterNumber", JSON.stringify(number))
-    }, [number])
+    // useEffect(() => {
+    //     let numberAsString = localStorage.getItem("counterNumber")
+    //     if (numberAsString) {
+    //         let newNumber = JSON.parse(numberAsString)
+    //         setNumber(newNumber)
+    //     }
+    // }, [])
+    //
+    // useEffect(() => {
+    //     localStorage.setItem("counterNumber", JSON.stringify(number))
+    // }, [number])
 
     function maxValue() {
         if (number < valueMax) {
@@ -31,12 +48,36 @@ export const Count = () => {
         setNumber(valueMin)
     }
 
+    function maxValueInput(value: number) {
+        setMax(value)
+        // if(value)
+    }
+
+    function minValueInput(value: number) {
+        setStart(value)
+    }
+
+    function initText() {
+        setInit(init = true)
+    }
+
     return (
-        <div className="Count">
-            <Scoreboard value={number} valueMax={valueMax}/>
+        <div className={s.Count}>
+            <div>
+                <div className={s.max}>
+                    MaxValue: <Input callBack={maxValueInput} value={max} errorInp={restProp.errorInp}/>
+                </div>
+                <div className={s.start}>
+                    StartValue: <Input callBack={minValueInput} value={start} errorInp={restProp.errorInp}/>
+                </div>
+                <div className={s.but}>
+                    <Buttons onClick={initText} title={"set"} dis={max === start}/>
+                </div>
+            </div>
+            <Scoreboard value={number} valueMax={valueMax} init={init}/>
             <div className='Buttons'>
-                <Buttons onClick={maxValue} title={"+"} dis={number === valueMax}/>
-                <Buttons onClick={resetValue} title={"-"} dis={number === valueMin}/>
+                <Buttons onClick={maxValue} title={"inc"} dis={number === max}/>
+                <Buttons onClick={resetValue} title={"res"} dis={number === valueMin}/>
             </div>
         </div>)
 }

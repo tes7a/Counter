@@ -1,0 +1,27 @@
+/*.Count {*/
+/*    position: absolute;*/
+/*    top: 30%;*/
+/*    left: 30%;*/
+/*    border: 3px solid #0a44ff;*/
+/*}*/
+
+.max {
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    border: 3px solid #0a44ff;
+}
+
+.start {
+    position: absolute;
+    top: 26%;
+    left: 60%;
+    border: 3px solid #0a44ff;
+}
+
+.but {
+    position: absolute;
+    bottom: 58%;
+    left: 64%;
+    border: 3px solid #000000;
+}
