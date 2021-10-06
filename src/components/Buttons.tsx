@@ -8,14 +8,14 @@ type buttonsType = {
     dis?: boolean
 }
 
-export const Buttons = (props: buttonsType) => {
+export const Buttons: React.FC<buttonsType> = ({onClick,title,dis}) => {
     const callBackHandler = () => {
-        props.onClick()
+        onClick()
     }
 
     return (
         <div>
-            <button className={props.dis === true ? s.bt : s.bs} onClick={callBackHandler}
-                    disabled={props.dis}><span style={{fontSize: "10px"}}>{props.title}</span></button>
+            <button className={dis === true ? s.bt : s.bs} onClick={callBackHandler}
+                    disabled={dis}><span style={{fontSize: "10px"}}>{title}</span></button>
         </div>)
 }
