@@ -1,5 +1,5 @@
 import React from "react";
-import '../App.css';
+import '../../../app.module.css';
 import s from "./ScoreBoard.module.css"
 
 type scoreboardType = {
